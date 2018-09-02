@@ -1,0 +1,71 @@
+c:\users\dic230\documents\visual studio 2015\Projects\DigitalImageCorrelation\DigitalImageCorrelation\bin\Debug\DigitalImageCorrelation.exe.config
+c:\users\dic230\documents\visual studio 2015\Projects\DigitalImageCorrelation\DigitalImageCorrelation\bin\Debug\DigitalImageCorrelation.exe
+c:\users\dic230\documents\visual studio 2015\Projects\DigitalImageCorrelation\DigitalImageCorrelation\bin\Debug\DigitalImageCorrelation.pdb
+c:\users\dic230\documents\visual studio 2015\Projects\DigitalImageCorrelation\DigitalImageCorrelation\obj\Debug\DigitalImageCorrelation.csprojResolveAssemblyReference.cache
+c:\users\dic230\documents\visual studio 2015\Projects\DigitalImageCorrelation\DigitalImageCorrelation\obj\Debug\DigitalImageCorrelation.Form1.resources
+c:\users\dic230\documents\visual studio 2015\Projects\DigitalImageCorrelation\DigitalImageCorrelation\obj\Debug\DigitalImageCorrelation.Properties.Resources.resources
+c:\users\dic230\documents\visual studio 2015\Projects\DigitalImageCorrelation\DigitalImageCorrelation\obj\Debug\DigitalImageCorrelation.csproj.GenerateResource.Cache
+c:\users\dic230\documents\visual studio 2015\Projects\DigitalImageCorrelation\DigitalImageCorrelation\obj\Debug\DigitalImageCorrelation.exe
+c:\users\dic230\documents\visual studio 2015\Projects\DigitalImageCorrelation\DigitalImageCorrelation\obj\Debug\DigitalImageCorrelation.pdb
+G:\Doc_YuLu\HFUT\projects\DigitalImageCorrelation\DigitalImageCorrelation\bin\Debug\DigitalImageCorrelation.exe.config
+G:\Doc_YuLu\HFUT\projects\DigitalImageCorrelation\DigitalImageCorrelation\obj\Debug\DigitalImageCorrelation.exe
+G:\Doc_YuLu\HFUT\projects\DigitalImageCorrelation\DigitalImageCorrelation\obj\Debug\DigitalImageCorrelation.pdb
+G:\Doc_YuLu\HFUT\projects\DigitalImageCorrelation\DigitalImageCorrelation\bin\Debug\DigitalImageCorrelation.exe
+G:\Doc_YuLu\HFUT\projects\DigitalImageCorrelation\DigitalImageCorrelation\bin\Debug\DigitalImageCorrelation.pdb
+G:\Doc_YuLu\HFUT\projects\DigitalImageCorrelation\DigitalImageCorrelation\obj\Debug\DigitalImageCorrelation.csprojResolveAssemblyReference.cache
+G:\Doc_YuLu\HFUT\projects\DigitalImageCorrelation\DigitalImageCorrelation\obj\Debug\DigitalImageCorrelation.Form1.resources
+G:\Doc_YuLu\HFUT\projects\DigitalImageCorrelation\DigitalImageCorrelation\obj\Debug\DigitalImageCorrelation.Properties.Resources.resources
+G:\Doc_YuLu\HFUT\projects\DigitalImageCorrelation\DigitalImageCorrelation\obj\Debug\DigitalImageCorrelation.csproj.GenerateResource.Cache
+D:\Code_LuYu\DigitalImageCorrelation\DigitalImageCorrelation\bin\Debug\DigitalImageCorrelation.exe.config
+D:\Code_LuYu\DigitalImageCorrelation\DigitalImageCorrelation\obj\Debug\DigitalImageCorrelation.exe
+D:\Code_LuYu\DigitalImageCorrelation\DigitalImageCorrelation\obj\Debug\DigitalImageCorrelation.pdb
+D:\Code_LuYu\DigitalImageCorrelation\DigitalImageCorrelation\bin\Debug\DigitalImageCorrelation.exe
+D:\Code_LuYu\DigitalImageCorrelation\DigitalImageCorrelation\bin\Debug\DigitalImageCorrelation.pdb
+D:\Code_LuYu\DigitalImageCorrelation\DigitalImageCorrelation\obj\Debug\DigitalImageCorrelation.csprojResolveAssemblyReference.cache
+D:\Code_LuYu\DigitalImageCorrelation\DigitalImageCorrelation\obj\Debug\DigitalImageCorrelation.Form1.resources
+D:\Code_LuYu\DigitalImageCorrelation\DigitalImageCorrelation\obj\Debug\DigitalImageCorrelation.Properties.Resources.resources
+D:\Code_LuYu\DigitalImageCorrelation\DigitalImageCorrelation\obj\Debug\DigitalImageCorrelation.csproj.GenerateResource.Cache
+C:\Users\kloop\Documents\Doc_YuLu\Code_LuYu\DigitalImageCorrelation\DigitalImageCorrelation\bin\Debug\DigitalImageCorrelation.exe.config
+C:\Users\kloop\Documents\Doc_YuLu\Code_LuYu\DigitalImageCorrelation\DigitalImageCorrelation\obj\Debug\DigitalImageCorrelation.exe
+C:\Users\kloop\Documents\Doc_YuLu\Code_LuYu\DigitalImageCorrelation\DigitalImageCorrelation\obj\Debug\DigitalImageCorrelation.pdb
+C:\Users\kloop\Documents\Doc_YuLu\Code_LuYu\DigitalImageCorrelation\DigitalImageCorrelation\bin\Debug\DigitalImageCorrelation.exe
+C:\Users\kloop\Documents\Doc_YuLu\Code_LuYu\DigitalImageCorrelation\DigitalImageCorrelation\bin\Debug\DigitalImageCorrelation.pdb
+C:\Users\kloop\Documents\Doc_YuLu\Code_LuYu\DigitalImageCorrelation\DigitalImageCorrelation\obj\Debug\DigitalImageCorrelation.Form1.resources
+C:\Users\kloop\Documents\Doc_YuLu\Code_LuYu\DigitalImageCorrelation\DigitalImageCorrelation\obj\Debug\DigitalImageCorrelation.Properties.Resources.resources
+C:\Users\kloop\Documents\Doc_YuLu\Code_LuYu\DigitalImageCorrelation\DigitalImageCorrelation\obj\Debug\DigitalImageCorrelation.csproj.GenerateResource.Cache
+F:\Doc_YuLu\Code_LuYu\DigitalImageCorrelation\DigitalImageCorrelation\bin\Debug\DigitalImageCorrelation.exe.config
+F:\Doc_YuLu\Code_LuYu\DigitalImageCorrelation\DigitalImageCorrelation\obj\Debug\DigitalImageCorrelation.exe
+F:\Doc_YuLu\Code_LuYu\DigitalImageCorrelation\DigitalImageCorrelation\obj\Debug\DigitalImageCorrelation.pdb
+C:\Users\kloop\Documents\Doc_YuLu\Code_LuYu\DigitalImageCorrelation\DigitalImageCorrelation\obj\Debug\DigitalImageCorrelation.csprojResolveAssemblyReference.cache
+C:\Users\kloop\Documents\Doc_YuLu\Code_LuYu\DIC2D\DigitalImageCorrelation\DigitalImageCorrelation\bin\Debug\DigitalImageCorrelation.exe.config
+C:\Users\kloop\Documents\Doc_YuLu\Code_LuYu\DIC2D\DigitalImageCorrelation\DigitalImageCorrelation\obj\Debug\DigitalImageCorrelation.exe
+C:\Users\kloop\Documents\Doc_YuLu\Code_LuYu\DIC2D\DigitalImageCorrelation\DigitalImageCorrelation\obj\Debug\DigitalImageCorrelation.pdb
+C:\Users\kloop\Documents\Doc_YuLu\Code_LuYu\DIC2D\DigitalImageCorrelation\DigitalImageCorrelation\bin\Debug\DigitalImageCorrelation.exe
+C:\Users\kloop\Documents\Doc_YuLu\Code_LuYu\DIC2D\DigitalImageCorrelation\DigitalImageCorrelation\bin\Debug\DigitalImageCorrelation.pdb
+C:\Users\kloop\Documents\Doc_YuLu\Code_LuYu\DIC2D\DigitalImageCorrelation\DigitalImageCorrelation\bin\Debug\Microsoft.VisualStudio.DebuggerVisualizers.dll
+C:\Users\kloop\Documents\Doc_YuLu\Code_LuYu\DIC2D\DigitalImageCorrelation\DigitalImageCorrelation\bin\Debug\Emgu.CV.UI.xml
+C:\Users\kloop\Documents\Doc_YuLu\Code_LuYu\DIC2D\DigitalImageCorrelation\DigitalImageCorrelation\bin\Debug\Emgu.CV.UI.GL.xml
+C:\Users\kloop\Documents\Doc_YuLu\Code_LuYu\DIC2D\DigitalImageCorrelation\DigitalImageCorrelation\bin\Debug\Emgu.CV.World.xml
+C:\Users\kloop\Documents\Doc_YuLu\Code_LuYu\DIC2D\DigitalImageCorrelation\DigitalImageCorrelation\bin\Debug\zh-Hans\Microsoft.VisualStudio.DebuggerVisualizers.resources.dll
+C:\Users\kloop\Documents\Doc_YuLu\Code_LuYu\DIC2D\DigitalImageCorrelation\DigitalImageCorrelation\obj\Debug\DigitalImageCorrelation.csprojResolveAssemblyReference.cache
+C:\Users\kloop\Documents\Doc_YuLu\Code_LuYu\DIC2D\DigitalImageCorrelation\DigitalImageCorrelation\obj\Debug\DigitalImageCorrelation.Form1.resources
+C:\Users\kloop\Documents\Doc_YuLu\Code_LuYu\DIC2D\DigitalImageCorrelation\DigitalImageCorrelation\obj\Debug\DigitalImageCorrelation.Properties.Resources.resources
+C:\Users\kloop\Documents\Doc_YuLu\Code_LuYu\DIC2D\DigitalImageCorrelation\DigitalImageCorrelation\obj\Debug\DigitalImageCorrelation.csproj.GenerateResource.Cache
+C:\Users\kloop\Documents\Doc_YuLu\Code_LuYu\DIC2D\DigitalImageCorrelation\DigitalImageCorrelation\bin\Debug\opencv_core249.dll
+C:\Users\kloop\Documents\Doc_YuLu\Code_LuYu\DIC2D\DigitalImageCorrelation\DigitalImageCorrelation\bin\Debug\opencv_imgproc249d.dll
+D:\Yu_Code\20180609DIC\DigitalImageCorrelation\DigitalImageCorrelation\bin\Debug\opencv_core249.dll
+D:\Yu_Code\20180609DIC\DigitalImageCorrelation\DigitalImageCorrelation\bin\Debug\opencv_imgproc249d.dll
+D:\Yu_Code\20180609DIC\DigitalImageCorrelation\DigitalImageCorrelation\bin\Debug\DigitalImageCorrelation.exe.config
+D:\Yu_Code\20180609DIC\DigitalImageCorrelation\DigitalImageCorrelation\bin\Debug\DigitalImageCorrelation.exe
+D:\Yu_Code\20180609DIC\DigitalImageCorrelation\DigitalImageCorrelation\bin\Debug\DigitalImageCorrelation.pdb
+D:\Yu_Code\20180609DIC\DigitalImageCorrelation\DigitalImageCorrelation\bin\Debug\Microsoft.VisualStudio.DebuggerVisualizers.dll
+D:\Yu_Code\20180609DIC\DigitalImageCorrelation\DigitalImageCorrelation\bin\Debug\Emgu.CV.UI.xml
+D:\Yu_Code\20180609DIC\DigitalImageCorrelation\DigitalImageCorrelation\bin\Debug\Emgu.CV.UI.GL.xml
+D:\Yu_Code\20180609DIC\DigitalImageCorrelation\DigitalImageCorrelation\bin\Debug\Emgu.CV.World.xml
+D:\Yu_Code\20180609DIC\DigitalImageCorrelation\DigitalImageCorrelation\bin\Debug\zh-Hans\Microsoft.VisualStudio.DebuggerVisualizers.resources.dll
+D:\Yu_Code\20180609DIC\DigitalImageCorrelation\DigitalImageCorrelation\obj\Debug\DigitalImageCorrelation.csprojResolveAssemblyReference.cache
+D:\Yu_Code\20180609DIC\DigitalImageCorrelation\DigitalImageCorrelation\obj\Debug\DigitalImageCorrelation.Form1.resources
+D:\Yu_Code\20180609DIC\DigitalImageCorrelation\DigitalImageCorrelation\obj\Debug\DigitalImageCorrelation.Properties.Resources.resources
+D:\Yu_Code\20180609DIC\DigitalImageCorrelation\DigitalImageCorrelation\obj\Debug\DigitalImageCorrelation.csproj.GenerateResource.Cache
+D:\Yu_Code\20180609DIC\DigitalImageCorrelation\DigitalImageCorrelation\obj\Debug\DigitalImageCorrelation.exe
+D:\Yu_Code\20180609DIC\DigitalImageCorrelation\DigitalImageCorrelation\obj\Debug\DigitalImageCorrelation.pdb
