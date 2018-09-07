@@ -62,6 +62,9 @@ namespace MyDIC
         public string[] filesName;                                        //图像文件夹内图像文件名
         bool isSingleImg;
         public List<string> m_listStr_bmpName;                       ///BMP文件名
+        public List<UI.CloudMap> m_listCMap_data;                    ///计算所得的云图数据  
+        public bool m_bool_CloudMapPoint = false;                    ///云图采集点功能的标志
+        public List<double> m_double_PointValue;                     ///云图采集点的值
 
         //单相机
         Panel m_PanelPic;                 //定义放置picturebox的panel
@@ -107,6 +110,8 @@ namespace MyDIC
             m_PicSizeMod = 3;
             m_listStr_bmpPicPath = new List<string>();
             m_listStr_bmpName = new List<string>();
+            m_listCMap_data = new List<UI.CloudMap>();
+            m_double_PointValue = new List<double>();
             m_int_bmpPicOrder = -1;
             m_int_CamPicNumbers = 0;
             m_bool_IsSinglePic = false;
@@ -119,7 +124,6 @@ namespace MyDIC
 
             InitializeComponent();
         }
-
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -137,6 +141,7 @@ namespace MyDIC
             pictureBoxDrawing.MouseMove += new MouseEventHandler(pictureBoxDrawing_MouseMove);
             //增加下拉列表操作事件
             comboBoxTemplateIMG.SelectedIndexChanged +=new EventHandler(comboBoxTemplateIMG_SelectedIndexChanged);
+            comboBoxCurrentIMG.SelectedIndexChanged += new EventHandler(comboBoxCurrentIMG_SelectedIndexChanged);            
             //增加鼠标进入到右下相关计算那6个按钮处的事件
             m_btn_Control.MouseEnter += new EventHandler(m_btn_MouseEnter);
             m_btn_InputData.MouseEnter += new EventHandler(m_btn_MouseEnter);
@@ -209,6 +214,7 @@ namespace MyDIC
             m_cob_PicSize.SelectedIndex = m_PicSizeMod;
 
             panel_Control.BringToFront();
+            update_listview(); //更新panel_Control中的List
         }
         void _UpdateUI()
         {
@@ -292,12 +298,16 @@ namespace MyDIC
         void SelectTemplateImage()
         {
             String str = m_listStr_bmpPicPath[comboBoxTemplateIMG.SelectedIndex];
-            currentDisplayedBMP = currentDisplayed(str);
-            m_picboxImg.Image = currentDisplayedBMP;
+            __PicBoxShowWatchPics(str);//显示对应图片
+            m_listCMap_data.Clear();//把上次云图保留的数据清除
          }
         void SelectCurrentImage()
         {
             //m_picboxLeft.Image = Image.FromFile(m_listStr_bmpPicPath[comboBoxCurrentIMG.SelectedIndex]);
+            if (m_listCMap_data.Count > 0) //如果有云图数据则显示
+            {
+                show_CloudMap(m_listCMap_data[comboBoxCurrentIMG.SelectedIndex]);
+            }
         }
         Bitmap currentDisplayed(String str)
         {
@@ -322,29 +332,10 @@ namespace MyDIC
 
             if (strArrayNode.Length > 1 && strArrayNode[1] != "")
                 InsertTreeNode(rootNode, strArrayNode, 1);
-
+           
             rootNode.Expand();  
         }
 
-        void __UpdateCombox(string FolderPath)
-        {
-            if (!m_bool_OpenFolder)
-                return;
-
-            m_treeView.Nodes.Clear();
-            m_treeView.ImageList = DirectoryIcon;
-
-            string[] strArrayNode = FolderPath.Split('\\');
-            TreeNode rootNode = new TreeNode(strArrayNode[0], 0, 0);
-            rootNode.Tag = strArrayNode[0];
-            rootNode.Name = strArrayNode[0];
-            this.m_treeView.Nodes.Add(rootNode);
-
-            if (strArrayNode.Length > 1 && strArrayNode[1] != "")
-                InsertTreeNode(rootNode, strArrayNode, 1);
-
-            rootNode.Expand();
-        }
         void InsertTreeNode(TreeNode rNode, string[] strArrayNode,int i)
         {
             if (i >= strArrayNode.Length)
@@ -358,6 +349,20 @@ namespace MyDIC
             rNode.Expand();  
             i++;
             InsertTreeNode(rootNode, strArrayNode, i);
+        }
+        void fileInsertTreeNode(TreeNode rNode, string[] strArrayNode, int j)
+        {
+            if (j >= strArrayNode.Length)
+            {
+                return;
+            }
+            TreeNode rootNode = new TreeNode(strArrayNode[j], 0, 0);
+            rootNode.Tag = strArrayNode[j];
+            rootNode.Name = strArrayNode[j];
+            rNode.Nodes.Add(rootNode);
+            rNode.Expand();
+            j++;
+            fileInsertTreeNode(rNode, strArrayNode, j);
         }
         void __PicBoxShowIndexChanged(string strpicPath)
         {
@@ -450,18 +455,27 @@ namespace MyDIC
 
             m_picboxImg.Image = img;
 
+            int picOrder = 0;
+            foreach (string item in m_listStr_bmpPicPath)
+            {
+                if (strpicPath == item)
+                {
+                    break;
+                }
+                picOrder++;
+            }
+
             Bitmap bitmapdrawFont = new Bitmap(m_picboxImg.Image.Width, m_picboxImg.Image.Height);
             Graphics g = Graphics.FromImage(bitmapdrawFont);
             Brush brush = new SolidBrush(Color.Red);
             Font drawFont = new Font("Arial", 5, FontStyle.Bold, GraphicsUnit.Millimeter);
-
-            string strStepno = "Step no:" + " " + m_int_bmpPicOrder;
+            string strStepno = "Step no:" + " " + picOrder;
             g.DrawString(strStepno, drawFont, brush, 10, 10);//在图片上显示当前这张图片序号
             string strLaststepno = "Last step no:" + " " + (m_listStr_bmpPicPath.Count - 1).ToString();
             g.DrawString(strLaststepno, drawFont, brush, 300, 10);//在图片上显示最后的一张图片序号
             string strAcqtime = "Rel.acq.time:" + " " + "00:00:00.000";
             g.DrawString(strAcqtime, drawFont, brush, 10, 40);//在图片上显示相对时间，固定相对时间为00：00：00.000
-            string strStepacqtime = "Step " + m_int_bmpPicOrder + " acq.time:" + m_listStr_bmpPicPath[m_int_bmpPicOrder].Substring(m_listStr_bmpPicPath[m_int_bmpPicOrder].LastIndexOf("\\"));
+            string strStepacqtime = "Step " + picOrder + " acq.time:" + m_listStr_bmpPicPath[picOrder].Substring(m_listStr_bmpPicPath[picOrder].LastIndexOf("\\"));
             g.DrawString(strStepacqtime, drawFont, brush, 300, 40);//在图片上显示该图片名称
             pictureBoxDrawing.Image = bitmapdrawFont;
         }
@@ -600,8 +614,7 @@ namespace MyDIC
 
                 m_listb_info.Items.Clear();
                 m_listb_info.Items.Insert(0, "选择文件夹" + m_str_FolderPath + "成功");
-
-                __UpdateUI();
+               
                 __UpdateTreeView(m_str_FolderPath);
                 GetFolderImageFiles(m_str_FolderPath);
 
@@ -637,6 +650,8 @@ namespace MyDIC
                     xmlDoc.AppendChild(rootNode);
                     xmlDoc.Save(fullfilename);
                 }
+
+                __UpdateUI();
             }
             pictureBoxDrawing.BringToFront();
             pictureBoxDrawing.Focus();
@@ -1443,6 +1458,10 @@ namespace MyDIC
             {
                 this.Cursor = Cursors.Cross;
             }
+            if (m_bool_CloudMapPoint)
+            {
+                this.Cursor = Cursors.Hand;
+            }
         }
         private void pictureBoxDrawing_MouseLeave(object sender, EventArgs e)
         {
@@ -1490,9 +1509,44 @@ namespace MyDIC
             isDrawingLocked = false;
             pictureBoxDrawing.Invalidate();
         }
-
         private void pictureBoxDrawing_MouseDown(object sender, MouseEventArgs e)
         {
+            if (m_bool_CloudMapPoint) //得到连续图片上的点
+            {
+                m_bool_CloudMapPoint = false;
+                if (m_listCMap_data.Count <= 0)
+                {
+                    MessageBox.Show("还未计算出图片的云图数据!");
+                    return;
+                }
+                int pt_map_index = 0;
+                try
+                {
+                    foreach (UI.CloudMap item in m_listCMap_data)
+                    {
+                        int pt_Index = 0;
+                        foreach (Point pitem in item.drawPt)
+                        {
+                            int x = (int)(e.X / width_tzoom);
+                            int y = (int)(e.Y / heigth_tzoom);
+                            if (pitem.X == x && pitem.Y == y)
+                            {
+                                break;
+                            }
+                            pt_Index++;
+                        }
+
+                        m_double_PointValue.Add(item.drawPtValue[pt_Index]);
+                        pt_map_index++;
+                    }
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("请选择云图上的数据!");
+                }
+                MessageBox.Show("采集数据完成");
+            }
+
             if (isDrawAble)//绘制多边形
             {
                 isDrawing = true;
@@ -2196,11 +2250,28 @@ namespace MyDIC
 
         private void m_menu_InputData_Click(object sender, EventArgs e)
         {
-            OpenFileDialog opf = new OpenFileDialog();
+            firstStep: OpenFileDialog opf = new OpenFileDialog();
             if (opf.ShowDialog() == DialogResult.OK)
             {
                 try
                 {
+                    FileStream stream = new FileStream(opf.FileName, FileMode.Open);
+                    StreamReader reader = new StreamReader(stream);
+                    //this.textbox1.Text = reader.ReadLine(); //一次性读取一行
+                    UI.CalibrationDataInput CalibrationWindow = new UI.CalibrationDataInput(opf.FileName, reader.ReadToEnd());
+                    CalibrationWindow.ShowDialog();
+                    reader.Close();
+                    stream.Close();
+
+                    if (CalibrationWindow.m_bool_lastStep)
+                    {
+                        goto firstStep;
+                    }
+                    if (CalibrationWindow.m_bool_Cancel)
+                    {
+                        __ListbInfoAdd("取消标定文件导入");
+                        return;
+                    }
                     if (LoadCalibrateDataXml(opf.FileName))
                         __ListbInfoAdd("载入数据成功");
                     else
@@ -2210,7 +2281,7 @@ namespace MyDIC
                 {
                     __ListbInfoAdd("载入数据失败，请选择正确的XML文件");
                 }
-            }
+            }          
         }
         private void m_btn_InPutCalibration_Click(object sender, EventArgs e)
         {
@@ -2290,8 +2361,16 @@ namespace MyDIC
             {
                 pictureBoxDrawing.Image = null;
 
-                templateImageName = m_listStr_bmpPicPath[comboBoxTemplateIMG.SelectedIndex];
-                currentImageName = m_listStr_bmpPicPath[comboBoxCurrentIMG.SelectedIndex];
+                try
+                {
+                    templateImageName = m_listStr_bmpPicPath[comboBoxTemplateIMG.SelectedIndex];
+                    currentImageName = m_listStr_bmpPicPath[comboBoxCurrentIMG.SelectedIndex];
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("必须同时选择模板图片与当前目标图片");
+                    return;
+                }
                 //
                 //listPointGridinPolygon
                 //templateImage = new Image<Bgr, byte>(templateImageName);
@@ -2475,44 +2554,9 @@ namespace MyDIC
                         drawPt[i * (int)(ListPF[ListPF.Count() - 1].X - ListPF[0].X + 1) + j].X = (int)templateAllPF[j, i].X;
                         drawPt[i * (int)(ListPF[ListPF.Count() - 1].X - ListPF[0].X + 1) + j].Y = (int)templateAllPF[j, i].Y;
                     }
-                }
-                double ciff = diffmax - diffmin;
-                using (Graphics g = Graphics.FromImage(bmpDrawingTemp))
-                {
-                    GetMask(this.m_picboxImg.Image);
-                    for (int i = 0; i < drawPtValue.Length; i++)
-                    {
-                        Color cor;
-                        int R, G, B;
-                        double ptValue = drawPtValue[i];
-                        if (diffmax - ptValue < ciff / 2.0)  //将三通道先归一化，再做一次函数计算，得到RGB分量
-                        {
-                            R = (int)(-180 / ciff * (diffmax - ptValue) + 160);
-                            G = (int)(360 / ciff * (diffmax - ptValue) + 70);
-                            B = (int)(-220 / ciff * (diffmax - ptValue) + 220);
-                        }
-                        else
-                        {
-                            R = (int)(350 / ciff * (diffmax - ptValue) - 105);
-                            G = (int)(-400 / ciff * (diffmax - ptValue) + 450);
-                            B = (int)(-220 / ciff * (diffmax - ptValue) + 220);
-                        }
-                        cor = Color.FromArgb(120, R, G, B);
-
-                        if (listMask[drawPt[i].X + drawPt[i].Y * m_picboxImg.Image.Width] == 1)
-                            g.DrawRectangle(new Pen(cor), drawPt[i].X * width_tzoom, drawPt[i].Y * heigth_tzoom, 1, 1);
-                         
-                    }
-                    string str1 = (diffmin + ciff * 1 / 7).ToString("#0.000");
-                    string str2 = (diffmin + ciff * 2 / 7).ToString("#0.000");
-                    string str3 = (diffmin + ciff * 3 / 7).ToString("#0.000");
-                    string str4 = (diffmin + ciff * 4 / 7).ToString("#0.000");
-                    string str5 = (diffmin + ciff * 5 / 7).ToString("#0.000");
-                    string str6 = (diffmin + ciff * 6 / 7).ToString("#0.000");
-                    string str7 = (diffmin + ciff * 7 / 7).ToString("#0.000");
-                    ShowColorDisplament(str7, str6, str5, str4, str3, str2, str1);
-                    pictureBoxDrawing.Image = bmpDrawingTemp;
-                }
+                }//获得绘画点的位置，以及绘画点的总偏差值
+                UI.CloudMap CloudMap = new UI.CloudMap(diffmin, diffmax, drawPtValue, drawPt);
+                show_CloudMap(CloudMap);
                 ClearMemory();//释放内存，否则运行过后程序可能会卡
             }
         } //相关计算按钮事件
@@ -2688,22 +2732,24 @@ namespace MyDIC
             return true;
         }
 
-
-
         private void m_btn_MouseEnter(object sender, EventArgs e)
         {
             UI.ControlUI.m_btn_MouseEnter(sender);
-        }
+        } //鼠标进入六个按钮 让按钮背景变橙色
         private void m_btn_MouseLeave(object sender, EventArgs e)
         {
             UI.ControlUI.m_btn_MouseLeave(sender);
-        }
+        } //鼠标出六个按钮 让按钮背景变正常
 
         public Panel ActivePanel = new Panel();//显示当前活动的面板
+
         private void m_btn_Control_Click(object sender, EventArgs e)
         {
             if (ActivePanel.Name == panel_Control.Name)
+            {
+                update_listview();
                 return;
+            }
             ActivePanel = panel_Control;
 
             panel_Control.BringToFront();
@@ -2711,7 +2757,265 @@ namespace MyDIC
             panel_EvaSetting.SendToBack();
             panel_MaskDef.SendToBack();
             panel_StartPts.SendToBack();
-            panel_VisualSetting.SendToBack();         
+            panel_VisualSetting.SendToBack();
+
+            update_listview();
+        }
+        // 更新List_View列表
+        private void update_listview()
+        {
+            this.Control_listview.BeginUpdate();
+            ContextMenuStrip cms = new ContextMenuStrip(); //添加一个右键功能
+            ToolStripMenuItem tsmi = new ToolStripMenuItem("剔除");
+            tsmi.Click += new EventHandler(tsmi_Click);
+            cms.Items.Add(tsmi);
+            comboBoxCurrentIMG.Items.Clear();
+            foreach (string item in m_listStr_bmpName)
+            {
+                comboBoxCurrentIMG.Items.Add(item);
+            }
+
+            this.Control_listview.ContextMenuStrip = cms;
+            this.Control_listview.Clear();
+            this.Control_listview.View = View.Details;
+            this.Control_listview.Columns.Add("name", 160, HorizontalAlignment.Left);
+            this.Control_listview.Columns.Add("done", 50, HorizontalAlignment.Left);
+            for (int i = 0; i < m_listStr_bmpName.Count; i++)
+            {
+                ListViewItem lvi = new ListViewItem();
+                lvi.Text = m_listStr_bmpName[i];
+                lvi.SubItems.Add("no");
+                this.Control_listview.Items.Add(lvi);
+            }
+            this.Control_listview.EndUpdate();
+        }
+        // 剔除掉列表中不想计算的图片，即选择计算的功能
+        private void tsmi_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string select_str = this.Control_listview.SelectedItems[0].Text;
+                m_listStr_bmpName.Remove(select_str);
+                update_listview();
+            }
+            catch (Exception)
+            {
+                return;
+            }            
+        }
+
+        // 计算列表中的图片
+        private void buttonRunAll_Click(object sender, EventArgs e)
+        {
+            List<string> calculationStrs = new List<string>();
+            m_listCMap_data.Clear(); //每次清空上次保存的云图数据
+            foreach (string item in m_listStr_bmpName)
+            {
+                foreach (string str in m_listStr_bmpPicPath)
+                {
+                    if (str.Contains(item))
+                    {
+                        calculationStrs.Add(str);
+                    }
+                }
+            }
+            //计算calculationStrs中所有的图片
+            foreach (string cal_str in calculationStrs)
+            {
+                if (isSingleImg)
+                {
+                    pictureBoxDrawing.Image = null;
+                    try
+                    {
+                        templateImageName = m_listStr_bmpPicPath[comboBoxTemplateIMG.SelectedIndex];
+                        currentImageName = cal_str;
+                    }
+                    catch (Exception)
+                    {
+                        MessageBox.Show("必须同时选择模板图片");
+                        return;
+                    }
+
+                    List<PointF> ListPF = new List<PointF>();
+                    List<PointF> ListBianjie = new List<PointF>();
+                    if (listPolygonPoint.Count() <= 0)
+                    {
+                        return;
+                    }
+                    int xMax = (int)listPolygonPoint[0].X;
+                    int yMax = (int)listPolygonPoint[0].Y;
+                    int xMin = (int)listPolygonPoint[0].X;
+                    int yMin = (int)listPolygonPoint[0].Y;
+                    foreach (PointF item in listPolygonPoint)
+                    {
+                        if (item.X > xMax)
+                        {
+                            xMax = (int)item.X;
+                        }
+                        else if (item.X < xMin)
+                        {
+                            xMin = (int)item.X;
+                        }
+                        if (item.Y > yMax)
+                        {
+                            yMax = (int)item.Y;
+                        }
+                        else if (item.Y < yMin)
+                        {
+                            yMin = (int)item.Y;
+                        }
+                    }
+                    ListBianjie.Add(new Point(xMin, yMin));
+                    ListBianjie.Add(new Point(xMax, yMin));
+                    ListBianjie.Add(new Point(xMax, yMax));//求得多边形的最大矩形的四个顶点，放入新的边界List中
+                    ListBianjie.Add(new Point(xMin, yMax));
+                    int w = m_picboxImg.Image.Width;
+                    int h = m_picboxImg.Image.Height;
+                    int maxEdge = m_int_SetSize;
+                    ListPF.Clear();
+                    for (int i = maxEdge; i < w - maxEdge; i = i + m_int_SetSize)
+                    {
+                        //float orginal_i = convert2_Origin_Value(i);
+                        for (int j = maxEdge; j < h - maxEdge; j = j + m_int_SetSize)
+                        {
+                            PointF checkPoint = new PointF(i, j);
+
+                            bool isInPloygon = IsInPolygon(checkPoint, ListBianjie);
+                            if (isInPloygon)
+                            {
+                                ListPF.Add(checkPoint);
+                            }
+                        }
+                    }//将需要的间隔点放入ListPF中，带入相关计算,,,找到矩形内的种子点
+
+                    int seedPointCount = ListPF.Count;
+                    x = new double[seedPointCount];
+                    y = new double[seedPointCount];
+                    for (int i = 0; i < seedPointCount; i++)
+                    {
+                        x[i] = ListPF[i].X;
+                        y[i] = ListPF[i].Y;
+                    }
+
+                    templateImage = new Bitmap(templateImageName);
+                    currentImage = new Bitmap(currentImageName);
+
+                    //计算匹配点
+                    //SeedPointsMaping spMaping = new SeedPointsMaping(listPolygonPoint, templateImage, currentImage, 1);
+                    regPoints.Registration(templateImage, currentImage, seedPointCount, x, y, m_int_RelateSize, m_int_ExtendSize);//计算举矩形内的种子点
+                    arrayGlobal_PointGridinPolygonSub = regPoints.PointFSub;//得到全局亚像素坐标
+                    arrayPointGridinPolygonSub = regPoints.PointFSub;//得到亚像素坐标
+                    //ListPF对应的点在ListPointGridinPolygonSub中
+                    float fx = ListPF[0].X;//计算矩形的x，y点个数
+                    int xnum = 0;
+                    foreach (PointF item in ListPF)
+                    {
+                        if (item.X == fx)
+                        {
+                            xnum++;
+                        }
+                        else
+                        {
+                            break;
+                        }
+                    }
+
+                    int ynum = arrayPointGridinPolygonSub.Count() / xnum; //得到ListPF中长宽的像素点个数
+                    PointF[,] PF = new PointF[xnum, ynum];
+                    for (int i = 0; i < ynum; i++)
+                    {
+                        for (int j = 0; j < xnum; j++)
+                        {
+                            PF[j, i] = arrayPointGridinPolygonSub[i * xnum + j];
+                        }
+                    }//将ListPF转为二维数组，方便插值计算
+
+                    PointF[,] templateAllPF = new PointF[(int)(ListPF[ListPF.Count() - 1].X - ListPF[0].X) + 1, (int)(ListPF[ListPF.Count() - 1].Y - ListPF[0].Y) + 1];//构建模板图片矩形内所有像素点的二维数组
+                    for (int i = 0; i < ListPF[ListPF.Count() - 1].Y - ListPF[0].Y + 1; i++)
+                    {
+                        for (int j = 0; j < ListPF[ListPF.Count() - 1].X - ListPF[0].X + 1; j++)
+                        {
+                            templateAllPF[j, i].X = ListPF[0].X + j;
+                            templateAllPF[j, i].Y = ListPF[0].Y + i;
+                        }
+                    }
+                    PointF[,] currentAllPF = new PointF[(int)(ListPF[ListPF.Count() - 1].X - ListPF[0].X) + 1, (int)(ListPF[ListPF.Count() - 1].Y - ListPF[0].Y) + 1];//构建当前图片矩形内所有像素点的二维数组
+                    for (int i = 0; i < ListPF[ListPF.Count() - 1].X - ListPF[0].X + 1; i++)
+                    {
+                        for (int j = 0; j < ListPF[ListPF.Count() - 1].Y - ListPF[0].Y + 1; j++)
+                        {
+                            int xn = j / maxEdge;
+                            int yn = i / maxEdge;
+                            int xx = j % maxEdge;
+                            int yy = i % maxEdge;
+                            if (xn == xnum - 1 && yn == ynum - 1) //剔除xy都是边界的情况
+                            {
+                                currentAllPF[i, j].X = (float)(PF[xn, yn].X);
+                                currentAllPF[i, j].Y = (float)(PF[xn, yn].Y);
+                            }
+                            else if (xn == xnum - 1)//剔除x是边界的情况
+                            {
+                                currentAllPF[i, j].X = (float)(
+                                                        PF[xn, yn].X * (1 - (double)xx / (double)maxEdge) * (1 - (double)yy / (double)maxEdge) +              //双线性插值                                     
+                                                        PF[xn, yn + 1].X * (1 - (double)xx / (double)maxEdge) * ((double)yy / (double)maxEdge));
+                                currentAllPF[i, j].Y = (float)(
+                                                        PF[xn, yn].Y * (1 - (double)xx / (double)maxEdge) * (1 - (double)yy / (double)maxEdge) +
+                                                        PF[xn, yn + 1].Y * (1 - (double)xx / (double)maxEdge) * ((double)yy / (double)maxEdge));
+                            }
+                            else if (yn == ynum - 1)//剔除y是边界的情况
+                            {
+                                currentAllPF[i, j].X = (float)(
+                                                        PF[xn, yn].X * (1 - (double)xx / (double)maxEdge) * (1 - (double)yy / (double)maxEdge) +
+                                                        PF[xn + 1, yn].X * ((double)xx / (double)maxEdge) * (1 - (double)yy / (double)maxEdge));
+                                currentAllPF[i, j].Y = (float)(
+                                                        PF[xn, yn].Y * (1 - (double)xx / (double)maxEdge) * (1 - (double)yy / (double)maxEdge) +
+                                                        PF[xn + 1, yn].Y * ((double)xx / (double)maxEdge) * (1 - (double)yy / (double)maxEdge));
+                            }
+                            else//正常插值的情况
+                            {
+                                currentAllPF[i, j].X = (float)(
+                                                        PF[xn, yn].X * (1 - (double)xx / (double)maxEdge) * (1 - (double)yy / (double)maxEdge) +
+                                                        PF[xn + 1, yn].X * ((double)xx / (double)maxEdge) * (1 - (double)yy / (double)maxEdge) +
+                                                        PF[xn, yn + 1].X * (1 - (double)xx / (double)maxEdge) * ((double)yy / (double)maxEdge) +
+                                                        PF[xn + 1, yn + 1].X * ((double)xx / (double)maxEdge) * ((double)yy / (double)maxEdge));
+                                currentAllPF[i, j].Y = (float)(
+                                                        PF[xn, yn].Y * (1 - (double)xx / (double)maxEdge) * (1 - (double)yy / (double)maxEdge) +
+                                                        PF[xn + 1, yn].Y * ((double)xx / (double)maxEdge) * (1 - (double)yy / (double)maxEdge) +
+                                                        PF[xn, yn + 1].Y * (1 - (double)xx / (double)maxEdge) * ((double)yy / (double)maxEdge) +
+                                                        PF[xn + 1, yn + 1].Y * ((double)xx / (double)maxEdge) * ((double)yy / (double)maxEdge));
+                            }
+                        }
+                    }
+
+                    double diffmax = 0;//最大变化量
+                    double diffmin = 9999;//最小变化量
+                    Point[] drawPt = new Point[templateAllPF.Length];
+                    double[] drawPtValue = new double[templateAllPF.Length];
+                    for (int i = 0; i < ListPF[ListPF.Count() - 1].Y - ListPF[0].Y + 1; i++)
+                    {
+                        for (int j = 0; j < ListPF[ListPF.Count() - 1].X - ListPF[0].X + 1; j++)
+                        {
+                            //double a = Math.Sqrt(Math.Pow((double)(templateAllPF[j, i].X - currentAllPF[j, i].X), 2) + Math.Pow((double)(templateAllPF[j, i].Y - currentAllPF[j, i].Y), 2));
+                            double a = Math.Sqrt(Math.Pow((double)(currentAllPF[j, i].X), 2) + Math.Pow((double)(currentAllPF[j, i].Y), 2));
+                            if (diffmax < a)
+                            {
+                                diffmax = a;
+                            }
+                            if (diffmin > a)
+                            {
+                                diffmin = a;
+                            }
+                            drawPtValue[i * (int)(ListPF[ListPF.Count() - 1].X - ListPF[0].X + 1) + j] = a;
+                            drawPt[i * (int)(ListPF[ListPF.Count() - 1].X - ListPF[0].X + 1) + j].X = (int)templateAllPF[j, i].X;
+                            drawPt[i * (int)(ListPF[ListPF.Count() - 1].X - ListPF[0].X + 1) + j].Y = (int)templateAllPF[j, i].Y;
+                        }
+                    }
+                    UI.CloudMap CloudMap = new UI.CloudMap(diffmin, diffmax, drawPtValue, drawPt);
+                    m_listCMap_data.Add(CloudMap);
+                    ClearMemory();//释放内存，否则运行过后程序可能会卡   
+                }
+            }
+            show_CloudMap(m_listCMap_data[0]);
         }
 
         private void m_btn_InputData_Click(object sender, EventArgs e)
@@ -2783,6 +3087,66 @@ namespace MyDIC
             panel_StartPts.SendToBack();
             panel_VisualSetting.BringToFront();  
         }
-        /****************************************************************************************/      
+        /****************************************************************************************/
+
+        //显示云图 CloudMaP云图类 云图包含的数据
+        public void show_CloudMap(UI.CloudMap CloudMap)
+        {
+            double diffmax = CloudMap.max_diff;
+            double diffmin = CloudMap.min_diff;
+            double[] drawPtValue = CloudMap.drawPtValue;
+            Point[] drawPt = CloudMap.drawPt;
+            double ciff = diffmax - diffmin;
+            using (Graphics g = Graphics.FromImage(bmpDrawingTemp))
+            {
+                GetMask(this.m_picboxImg.Image);
+                for (int i = 0; i < drawPtValue.Length; i++)
+                {
+                    Color cor;
+                    int R, G, B;
+                    double ptValue = drawPtValue[i];
+                    if (diffmax - ptValue < ciff / 2.0)  //将三通道先归一化，再做一次函数计算，得到RGB分量
+                    {
+                        R = (int)(-180 / ciff * (diffmax - ptValue) + 160);
+                        G = (int)(360 / ciff * (diffmax - ptValue) + 70);
+                        B = (int)(-220 / ciff * (diffmax - ptValue) + 220);
+                    }
+                    else
+                    {
+                        R = (int)(350 / ciff * (diffmax - ptValue) - 105);
+                        G = (int)(-400 / ciff * (diffmax - ptValue) + 450);
+                        B = (int)(-220 / ciff * (diffmax - ptValue) + 220);
+                    }
+                    cor = Color.FromArgb(120, R, G, B);
+
+                    if (listMask[drawPt[i].X + drawPt[i].Y * m_picboxImg.Image.Width] == 1)
+                        g.DrawRectangle(new Pen(cor), drawPt[i].X * width_tzoom, drawPt[i].Y * heigth_tzoom, 1, 1);
+
+                }
+                string str1 = (diffmin + ciff * 1 / 7).ToString("#0.000");
+                string str2 = (diffmin + ciff * 2 / 7).ToString("#0.000");
+                string str3 = (diffmin + ciff * 3 / 7).ToString("#0.000");
+                string str4 = (diffmin + ciff * 4 / 7).ToString("#0.000");
+                string str5 = (diffmin + ciff * 5 / 7).ToString("#0.000");
+                string str6 = (diffmin + ciff * 6 / 7).ToString("#0.000");
+                string str7 = (diffmin + ciff * 7 / 7).ToString("#0.000");
+                ShowColorDisplament(str7, str6, str5, str4, str3, str2, str1);
+                pictureBoxDrawing.Image = bmpDrawingTemp;
+            }
+            ClearMemory();
+        }
+
+        //需要采集的点
+        private void m_btn_DrawPoint_Click(object sender, EventArgs e)
+        {
+            m_double_PointValue.Clear(); //把上次保存点的数据清空
+            m_bool_CloudMapPoint = true;
+        }
+
+        private void buttonShowAll_Click(object sender, EventArgs e)
+        {
+            DICResultShow DicRS = new DICResultShow(m_double_PointValue);
+            DicRS.Show();
+        }
     }
 }

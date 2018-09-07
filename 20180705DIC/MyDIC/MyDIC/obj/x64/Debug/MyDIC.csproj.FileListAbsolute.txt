@@ -214,3 +214,22 @@ D:\软件VS\DIC单目程序第一版！\20180705DIC\MyDIC\MyDIC\obj\x64\Debug\My
 D:\软件VS\DIC单目程序第一版！\20180705DIC\MyDIC\MyDIC\obj\x64\Debug\MyDIC.exe
 D:\软件VS\DIC单目程序第一版！\20180705DIC\MyDIC\MyDIC\obj\x64\Debug\MyDIC.pdb
 D:\软件VS\DIC单目程序第一版！\20180705DIC\MyDIC\MyDIC\obj\x64\Debug\MyDIC.UI.CalibrationDataInput.resources
+C:\Users\15987\Desktop\Git Project\Git_Dic\20180705DIC\MyDIC\MyDIC\bin\x64\Debug\MyDIC.exe.config
+C:\Users\15987\Desktop\Git Project\Git_Dic\20180705DIC\MyDIC\MyDIC\bin\x64\Debug\MyDIC.exe
+C:\Users\15987\Desktop\Git Project\Git_Dic\20180705DIC\MyDIC\MyDIC\bin\x64\Debug\MyDIC.pdb
+C:\Users\15987\Desktop\Git Project\Git_Dic\20180705DIC\MyDIC\MyDIC\bin\x64\Debug\ImageR.dll
+C:\Users\15987\Desktop\Git Project\Git_Dic\20180705DIC\MyDIC\MyDIC\bin\x64\Debug\ImageR.pdb
+C:\Users\15987\Desktop\Git Project\Git_Dic\20180705DIC\MyDIC\MyDIC\bin\x64\Debug\Emgu.CV.UI.xml
+C:\Users\15987\Desktop\Git Project\Git_Dic\20180705DIC\MyDIC\MyDIC\bin\x64\Debug\Emgu.CV.UI.GL.xml
+C:\Users\15987\Desktop\Git Project\Git_Dic\20180705DIC\MyDIC\MyDIC\bin\x64\Debug\Emgu.CV.World.xml
+C:\Users\15987\Desktop\Git Project\Git_Dic\20180705DIC\MyDIC\MyDIC\obj\x64\Debug\MyDIC.csprojResolveAssemblyReference.cache
+C:\Users\15987\Desktop\Git Project\Git_Dic\20180705DIC\MyDIC\MyDIC\obj\x64\Debug\MyDIC.CalibrationSetting.resources
+C:\Users\15987\Desktop\Git Project\Git_Dic\20180705DIC\MyDIC\MyDIC\obj\x64\Debug\MyDIC.DICResultShow.resources
+C:\Users\15987\Desktop\Git Project\Git_Dic\20180705DIC\MyDIC\MyDIC\obj\x64\Debug\MyDIC.DICSetting.resources
+C:\Users\15987\Desktop\Git Project\Git_Dic\20180705DIC\MyDIC\MyDIC\obj\x64\Debug\MyDIC.MainForm.resources
+C:\Users\15987\Desktop\Git Project\Git_Dic\20180705DIC\MyDIC\MyDIC\obj\x64\Debug\MyDIC.Properties.Resources.resources
+C:\Users\15987\Desktop\Git Project\Git_Dic\20180705DIC\MyDIC\MyDIC\obj\x64\Debug\MyDIC.SingleCameraSetting.resources
+C:\Users\15987\Desktop\Git Project\Git_Dic\20180705DIC\MyDIC\MyDIC\obj\x64\Debug\MyDIC.UI.CalibrationDataInput.resources
+C:\Users\15987\Desktop\Git Project\Git_Dic\20180705DIC\MyDIC\MyDIC\obj\x64\Debug\MyDIC.csproj.GenerateResource.Cache
+C:\Users\15987\Desktop\Git Project\Git_Dic\20180705DIC\MyDIC\MyDIC\obj\x64\Debug\MyDIC.exe
+C:\Users\15987\Desktop\Git Project\Git_Dic\20180705DIC\MyDIC\MyDIC\obj\x64\Debug\MyDIC.pdb
