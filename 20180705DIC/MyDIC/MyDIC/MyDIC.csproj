@@ -188,6 +188,7 @@
     <Compile Include="UI\CalibrationDataInput.Designer.cs">
       <DependentUpon>CalibrationDataInput.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\CloudMap.cs" />
     <Compile Include="UI\ControlUI.cs" />
     <EmbeddedResource Include="CalibrationSetting.resx">
       <DependentUpon>CalibrationSetting.cs</DependentUpon>
@@ -305,6 +306,7 @@
     <None Include="Resources\iMovie.ico" />
     <None Include="Resources\iPhoto.ico" />
     <None Include="Resources\gray.bmp" />
+    <None Include="Resources\POINT10.ICO" />
     <Content Include="VISTA系统桌面图标下载11.ico" />
   </ItemGroup>
   <ItemGroup>

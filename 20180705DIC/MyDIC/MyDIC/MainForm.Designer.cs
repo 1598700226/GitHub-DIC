@@ -54,33 +54,17 @@
             this.视图ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.帮助ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.m_btn_SelectFolder = new System.Windows.Forms.ToolStripButton();
-            this.m_btn_SavePicToAddress = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.m_btn_WatchPics = new System.Windows.Forms.ToolStripButton();
-            this.m_btn_WatchLastPics = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
-            this.m_btn_CameraSet = new System.Windows.Forms.ToolStripButton();
-            this.m_btn_OpenCamera = new System.Windows.Forms.ToolStripButton();
-            this.m_btn_CloseCamera = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
-            this.m_btn_StartCalibration = new System.Windows.Forms.ToolStripButton();
-            this.m_btn_CalibrateSet = new System.Windows.Forms.ToolStripButton();
-            this.m_btn_InPutCalibration = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator9 = new System.Windows.Forms.ToolStripSeparator();
             this.m_cob_PicSize = new System.Windows.Forms.ToolStripComboBox();
             this.m_cob_PicShow = new System.Windows.Forms.ToolStripComboBox();
             this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
             this.m_cob_CameraMod = new System.Windows.Forms.ToolStripComboBox();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-            this.m_btn_ShowPoint = new System.Windows.Forms.ToolStripButton();
-            this.m_btn_SetOrigin = new System.Windows.Forms.ToolStripButton();
-            this.m_btn_SetPath = new System.Windows.Forms.ToolStripButton();
             this.m_cob_ShowPoint = new System.Windows.Forms.ToolStripComboBox();
             this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
-            this.m_btn_NewFolder = new System.Windows.Forms.ToolStripButton();
-            this.m_btn_ContinueFolder = new System.Windows.Forms.ToolStripButton();
-            this.m_btn_CatchSinglePic = new System.Windows.Forms.ToolStripButton();
             this.m_txt_CatchPicNumbers = new System.Windows.Forms.ToolStripTextBox();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.m_tool_ProgressBar = new System.Windows.Forms.ToolStripProgressBar();
@@ -91,7 +75,7 @@
             this.panelRight = new System.Windows.Forms.Panel();
             this.m_btn_blank = new System.Windows.Forms.Button();
             this.panel_Control = new System.Windows.Forms.Panel();
-            this.listView1 = new System.Windows.Forms.ListView();
+            this.Control_listview = new System.Windows.Forms.ListView();
             this.buttonShow = new System.Windows.Forms.Button();
             this.buttonRun = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -178,6 +162,25 @@
             this.ProgressBarTimer = new System.Windows.Forms.Timer(this.components);
             this.CameraFrameTimer = new System.Windows.Forms.Timer(this.components);
             this.CameraSnapTimer = new System.Windows.Forms.Timer(this.components);
+            this.buttonRunAll = new System.Windows.Forms.Button();
+            this.buttonShowAll = new System.Windows.Forms.Button();
+            this.m_btn_SelectFolder = new System.Windows.Forms.ToolStripButton();
+            this.m_btn_SavePicToAddress = new System.Windows.Forms.ToolStripButton();
+            this.m_btn_WatchPics = new System.Windows.Forms.ToolStripButton();
+            this.m_btn_WatchLastPics = new System.Windows.Forms.ToolStripButton();
+            this.m_btn_CameraSet = new System.Windows.Forms.ToolStripButton();
+            this.m_btn_OpenCamera = new System.Windows.Forms.ToolStripButton();
+            this.m_btn_CloseCamera = new System.Windows.Forms.ToolStripButton();
+            this.m_btn_StartCalibration = new System.Windows.Forms.ToolStripButton();
+            this.m_btn_CalibrateSet = new System.Windows.Forms.ToolStripButton();
+            this.m_btn_InPutCalibration = new System.Windows.Forms.ToolStripButton();
+            this.m_btn_ShowPoint = new System.Windows.Forms.ToolStripButton();
+            this.m_btn_SetOrigin = new System.Windows.Forms.ToolStripButton();
+            this.m_btn_SetPath = new System.Windows.Forms.ToolStripButton();
+            this.m_btn_NewFolder = new System.Windows.Forms.ToolStripButton();
+            this.m_btn_ContinueFolder = new System.Windows.Forms.ToolStripButton();
+            this.m_btn_CatchSinglePic = new System.Windows.Forms.ToolStripButton();
+            this.m_btn_DrawPoint = new System.Windows.Forms.ToolStripButton();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerTreeView)).BeginInit();
@@ -427,129 +430,28 @@
             this.m_btn_CatchSinglePic,
             this.m_txt_CatchPicNumbers,
             this.toolStripSeparator1,
-            this.m_tool_ProgressBar});
+            this.m_tool_ProgressBar,
+            this.m_btn_DrawPoint});
             this.toolStrip1.Location = new System.Drawing.Point(0, 25);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(875, 36);
             this.toolStrip1.TabIndex = 2;
             this.toolStrip1.Text = "toolStrip1";
             // 
-            // m_btn_SelectFolder
-            // 
-            this.m_btn_SelectFolder.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.m_btn_SelectFolder.Image = global::MyDIC.Properties.Resources.文件夹桌面图标下载26;
-            this.m_btn_SelectFolder.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.m_btn_SelectFolder.Name = "m_btn_SelectFolder";
-            this.m_btn_SelectFolder.Size = new System.Drawing.Size(23, 33);
-            this.m_btn_SelectFolder.Text = "选择文件夹";
-            this.m_btn_SelectFolder.Click += new System.EventHandler(this.m_btn_SelectFolder_Click);
-            // 
-            // m_btn_SavePicToAddress
-            // 
-            this.m_btn_SavePicToAddress.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.m_btn_SavePicToAddress.Image = global::MyDIC.Properties.Resources.DISKETTE;
-            this.m_btn_SavePicToAddress.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.m_btn_SavePicToAddress.Name = "m_btn_SavePicToAddress";
-            this.m_btn_SavePicToAddress.Size = new System.Drawing.Size(23, 33);
-            this.m_btn_SavePicToAddress.Text = "保存图片至任意位置";
-            this.m_btn_SavePicToAddress.Click += new System.EventHandler(this.m_btn_SavePicToAddress_Click);
-            // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             this.toolStripSeparator2.Size = new System.Drawing.Size(6, 36);
-            // 
-            // m_btn_WatchPics
-            // 
-            this.m_btn_WatchPics.AccessibleName = "";
-            this.m_btn_WatchPics.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.m_btn_WatchPics.Image = global::MyDIC.Properties.Resources.蓝色电脑系统图标下载16;
-            this.m_btn_WatchPics.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.m_btn_WatchPics.Name = "m_btn_WatchPics";
-            this.m_btn_WatchPics.Size = new System.Drawing.Size(23, 33);
-            this.m_btn_WatchPics.Text = "查看图片";
-            this.m_btn_WatchPics.Click += new System.EventHandler(this.m_btn_WatchPics_Click);
-            // 
-            // m_btn_WatchLastPics
-            // 
-            this.m_btn_WatchLastPics.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.m_btn_WatchLastPics.Image = global::MyDIC.Properties.Resources.ARW11NW;
-            this.m_btn_WatchLastPics.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.m_btn_WatchLastPics.Name = "m_btn_WatchLastPics";
-            this.m_btn_WatchLastPics.Size = new System.Drawing.Size(23, 33);
-            this.m_btn_WatchLastPics.Text = "查看上一张图片";
-            this.m_btn_WatchLastPics.Click += new System.EventHandler(this.m_btn_WatchLastPics_Click);
             // 
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
             this.toolStripSeparator4.Size = new System.Drawing.Size(6, 36);
             // 
-            // m_btn_CameraSet
-            // 
-            this.m_btn_CameraSet.AccessibleDescription = "";
-            this.m_btn_CameraSet.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.m_btn_CameraSet.Image = global::MyDIC.Properties.Resources.MARK0017;
-            this.m_btn_CameraSet.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.m_btn_CameraSet.Name = "m_btn_CameraSet";
-            this.m_btn_CameraSet.Size = new System.Drawing.Size(23, 33);
-            this.m_btn_CameraSet.Text = "设置相机";
-            this.m_btn_CameraSet.Click += new System.EventHandler(this.m_btn_CameraSet_Click);
-            // 
-            // m_btn_OpenCamera
-            // 
-            this.m_btn_OpenCamera.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.m_btn_OpenCamera.Image = global::MyDIC.Properties.Resources.BMWDicons;
-            this.m_btn_OpenCamera.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.m_btn_OpenCamera.Name = "m_btn_OpenCamera";
-            this.m_btn_OpenCamera.Size = new System.Drawing.Size(23, 33);
-            this.m_btn_OpenCamera.Text = "开启设备";
-            this.m_btn_OpenCamera.Click += new System.EventHandler(this.m_btn_OpenCamera_Click);
-            // 
-            // m_btn_CloseCamera
-            // 
-            this.m_btn_CloseCamera.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.m_btn_CloseCamera.Image = global::MyDIC.Properties.Resources.DOG;
-            this.m_btn_CloseCamera.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.m_btn_CloseCamera.Name = "m_btn_CloseCamera";
-            this.m_btn_CloseCamera.Size = new System.Drawing.Size(23, 33);
-            this.m_btn_CloseCamera.Text = "关闭设备";
-            this.m_btn_CloseCamera.Click += new System.EventHandler(this.m_btn_CloseCamera_Click);
-            // 
             // toolStripSeparator5
             // 
             this.toolStripSeparator5.Name = "toolStripSeparator5";
             this.toolStripSeparator5.Size = new System.Drawing.Size(6, 36);
-            // 
-            // m_btn_StartCalibration
-            // 
-            this.m_btn_StartCalibration.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.m_btn_StartCalibration.Image = global::MyDIC.Properties.Resources.Sci_FiObjects0100;
-            this.m_btn_StartCalibration.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.m_btn_StartCalibration.Name = "m_btn_StartCalibration";
-            this.m_btn_StartCalibration.Size = new System.Drawing.Size(23, 33);
-            this.m_btn_StartCalibration.Text = "建立标定序列";
-            this.m_btn_StartCalibration.Click += new System.EventHandler(this.m_btn_StartCalibration_Click);
-            // 
-            // m_btn_CalibrateSet
-            // 
-            this.m_btn_CalibrateSet.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.m_btn_CalibrateSet.Image = global::MyDIC.Properties.Resources.文件夹桌面图标下载17;
-            this.m_btn_CalibrateSet.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.m_btn_CalibrateSet.Name = "m_btn_CalibrateSet";
-            this.m_btn_CalibrateSet.Size = new System.Drawing.Size(23, 33);
-            this.m_btn_CalibrateSet.Text = "设置标定参数";
-            this.m_btn_CalibrateSet.Click += new System.EventHandler(this.m_btn_CalibrateSet_Click);
-            // 
-            // m_btn_InPutCalibration
-            // 
-            this.m_btn_InPutCalibration.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.m_btn_InPutCalibration.Image = global::MyDIC.Properties.Resources.文件夹桌面图标下载20;
-            this.m_btn_InPutCalibration.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.m_btn_InPutCalibration.Name = "m_btn_InPutCalibration";
-            this.m_btn_InPutCalibration.Size = new System.Drawing.Size(23, 33);
-            this.m_btn_InPutCalibration.Text = "载入标定数据";
-            this.m_btn_InPutCalibration.Click += new System.EventHandler(this.m_btn_InPutCalibration_Click);
             // 
             // toolStripSeparator9
             // 
@@ -603,36 +505,6 @@
             this.toolStripSeparator3.Name = "toolStripSeparator3";
             this.toolStripSeparator3.Size = new System.Drawing.Size(6, 36);
             // 
-            // m_btn_ShowPoint
-            // 
-            this.m_btn_ShowPoint.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.m_btn_ShowPoint.Image = global::MyDIC.Properties.Resources.BEBULB_1;
-            this.m_btn_ShowPoint.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.m_btn_ShowPoint.Name = "m_btn_ShowPoint";
-            this.m_btn_ShowPoint.Size = new System.Drawing.Size(23, 33);
-            this.m_btn_ShowPoint.Text = "DIC参数设置";
-            this.m_btn_ShowPoint.Click += new System.EventHandler(this.m_btn_DICSetting_Click);
-            // 
-            // m_btn_SetOrigin
-            // 
-            this.m_btn_SetOrigin.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.m_btn_SetOrigin.Image = global::MyDIC.Properties.Resources._03b;
-            this.m_btn_SetOrigin.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.m_btn_SetOrigin.Name = "m_btn_SetOrigin";
-            this.m_btn_SetOrigin.Size = new System.Drawing.Size(23, 33);
-            this.m_btn_SetOrigin.Text = "放置原点";
-            this.m_btn_SetOrigin.Click += new System.EventHandler(this.m_btn_SetOrigin_Click);
-            // 
-            // m_btn_SetPath
-            // 
-            this.m_btn_SetPath.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.m_btn_SetPath.Image = global::MyDIC.Properties.Resources.POINT09;
-            this.m_btn_SetPath.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.m_btn_SetPath.Name = "m_btn_SetPath";
-            this.m_btn_SetPath.Size = new System.Drawing.Size(23, 33);
-            this.m_btn_SetPath.Text = "画出计算区域";
-            this.m_btn_SetPath.Click += new System.EventHandler(this.m_btn_SetPath_Click);
-            // 
             // m_cob_ShowPoint
             // 
             this.m_cob_ShowPoint.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -648,36 +520,6 @@
             // 
             this.toolStripSeparator7.Name = "toolStripSeparator7";
             this.toolStripSeparator7.Size = new System.Drawing.Size(6, 36);
-            // 
-            // m_btn_NewFolder
-            // 
-            this.m_btn_NewFolder.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.m_btn_NewFolder.Image = global::MyDIC.Properties.Resources.OPENSTEP_EUI_Recycle_Bin__empty_;
-            this.m_btn_NewFolder.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.m_btn_NewFolder.Name = "m_btn_NewFolder";
-            this.m_btn_NewFolder.Size = new System.Drawing.Size(23, 33);
-            this.m_btn_NewFolder.Text = "新建采集序列";
-            this.m_btn_NewFolder.Click += new System.EventHandler(this.m_btn_NewFolder_Click);
-            // 
-            // m_btn_ContinueFolder
-            // 
-            this.m_btn_ContinueFolder.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.m_btn_ContinueFolder.Image = global::MyDIC.Properties.Resources.OPENSTEP_EUI_Recycle_Bin__full_;
-            this.m_btn_ContinueFolder.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.m_btn_ContinueFolder.Name = "m_btn_ContinueFolder";
-            this.m_btn_ContinueFolder.Size = new System.Drawing.Size(23, 33);
-            this.m_btn_ContinueFolder.Text = "继续采集序列";
-            this.m_btn_ContinueFolder.Click += new System.EventHandler(this.m_btn_ContinueFolder_Click);
-            // 
-            // m_btn_CatchSinglePic
-            // 
-            this.m_btn_CatchSinglePic.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.m_btn_CatchSinglePic.Image = global::MyDIC.Properties.Resources.文件夹桌面图标下载18;
-            this.m_btn_CatchSinglePic.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.m_btn_CatchSinglePic.Name = "m_btn_CatchSinglePic";
-            this.m_btn_CatchSinglePic.Size = new System.Drawing.Size(23, 33);
-            this.m_btn_CatchSinglePic.Text = "单帧采集";
-            this.m_btn_CatchSinglePic.Click += new System.EventHandler(this.m_btn_CatchSinglePic_Click);
             // 
             // m_txt_CatchPicNumbers
             // 
@@ -727,7 +569,7 @@
             this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 19.1458F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 80.85419F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 230F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 231F));
             this.tableLayoutPanel1.Controls.Add(this.splitContainerTreeView, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.panelMiddle, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.panelRight, 2, 0);
@@ -744,28 +586,28 @@
             this.panelMiddle.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelMiddle.Location = new System.Drawing.Point(126, 3);
             this.panelMiddle.Name = "panelMiddle";
-            this.panelMiddle.Size = new System.Drawing.Size(515, 756);
+            this.panelMiddle.Size = new System.Drawing.Size(514, 756);
             this.panelMiddle.TabIndex = 2;
             // 
             // panelRight
             // 
             this.panelRight.Controls.Add(this.m_btn_blank);
-            this.panelRight.Controls.Add(this.panel_Control);
             this.panelRight.Controls.Add(this.m_btn_Control);
             this.panelRight.Controls.Add(this.m_btn_VisualSetting);
             this.panelRight.Controls.Add(this.m_btn_InputData);
             this.panelRight.Controls.Add(this.m_btn_EvaSetting);
             this.panelRight.Controls.Add(this.m_btn_StartPts);
             this.panelRight.Controls.Add(this.m_btn_MaskDef);
+            this.panelRight.Controls.Add(this.panel_Control);
             this.panelRight.Controls.Add(this.panel_VisualSetting);
             this.panelRight.Controls.Add(this.panel_StartPts);
             this.panelRight.Controls.Add(this.panel_MaskDef);
             this.panelRight.Controls.Add(this.panel_EvaSetting);
             this.panelRight.Controls.Add(this.panel_InputData);
             this.panelRight.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelRight.Location = new System.Drawing.Point(647, 3);
+            this.panelRight.Location = new System.Drawing.Point(646, 3);
             this.panelRight.Name = "panelRight";
-            this.panelRight.Size = new System.Drawing.Size(225, 756);
+            this.panelRight.Size = new System.Drawing.Size(226, 756);
             this.panelRight.TabIndex = 3;
             // 
             // m_btn_blank
@@ -776,7 +618,7 @@
             this.m_btn_blank.Location = new System.Drawing.Point(0, 719);
             this.m_btn_blank.Margin = new System.Windows.Forms.Padding(0);
             this.m_btn_blank.Name = "m_btn_blank";
-            this.m_btn_blank.Size = new System.Drawing.Size(225, 37);
+            this.m_btn_blank.Size = new System.Drawing.Size(226, 37);
             this.m_btn_blank.TabIndex = 1;
             this.m_btn_blank.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.m_btn_blank.UseVisualStyleBackColor = false;
@@ -787,8 +629,10 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel_Control.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel_Control.Controls.Add(this.listView1);
+            this.panel_Control.Controls.Add(this.Control_listview);
+            this.panel_Control.Controls.Add(this.buttonShowAll);
             this.panel_Control.Controls.Add(this.buttonShow);
+            this.panel_Control.Controls.Add(this.buttonRunAll);
             this.panel_Control.Controls.Add(this.buttonRun);
             this.panel_Control.Controls.Add(this.label1);
             this.panel_Control.Controls.Add(this.label2);
@@ -796,20 +640,20 @@
             this.panel_Control.Controls.Add(this.comboBoxCurrentIMG);
             this.panel_Control.Location = new System.Drawing.Point(3, 3);
             this.panel_Control.Name = "panel_Control";
-            this.panel_Control.Size = new System.Drawing.Size(219, 503);
+            this.panel_Control.Size = new System.Drawing.Size(220, 503);
             this.panel_Control.TabIndex = 0;
             // 
-            // listView1
+            // Control_listview
             // 
-            this.listView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.Control_listview.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.listView1.Location = new System.Drawing.Point(3, 122);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(209, 374);
-            this.listView1.TabIndex = 24;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.Tile;
+            this.Control_listview.Location = new System.Drawing.Point(3, 122);
+            this.Control_listview.Name = "Control_listview";
+            this.Control_listview.Size = new System.Drawing.Size(210, 342);
+            this.Control_listview.TabIndex = 24;
+            this.Control_listview.UseCompatibleStateImageBehavior = false;
+            this.Control_listview.View = System.Windows.Forms.View.Details;
             // 
             // buttonShow
             // 
@@ -826,7 +670,7 @@
             this.buttonRun.Name = "buttonRun";
             this.buttonRun.Size = new System.Drawing.Size(93, 23);
             this.buttonRun.TabIndex = 20;
-            this.buttonRun.Text = "开始计算";
+            this.buttonRun.Text = "单张计算";
             this.buttonRun.UseVisualStyleBackColor = true;
             this.buttonRun.Click += new System.EventHandler(this.buttonRun_Click);
             // 
@@ -857,7 +701,7 @@
             this.comboBoxTemplateIMG.Location = new System.Drawing.Point(14, 23);
             this.comboBoxTemplateIMG.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxTemplateIMG.Name = "comboBoxTemplateIMG";
-            this.comboBoxTemplateIMG.Size = new System.Drawing.Size(193, 20);
+            this.comboBoxTemplateIMG.Size = new System.Drawing.Size(194, 20);
             this.comboBoxTemplateIMG.TabIndex = 18;
             // 
             // comboBoxCurrentIMG
@@ -869,7 +713,7 @@
             this.comboBoxCurrentIMG.Location = new System.Drawing.Point(13, 68);
             this.comboBoxCurrentIMG.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxCurrentIMG.Name = "comboBoxCurrentIMG";
-            this.comboBoxCurrentIMG.Size = new System.Drawing.Size(193, 20);
+            this.comboBoxCurrentIMG.Size = new System.Drawing.Size(194, 20);
             this.comboBoxCurrentIMG.TabIndex = 19;
             // 
             // m_btn_Control
@@ -880,7 +724,7 @@
             this.m_btn_Control.Location = new System.Drawing.Point(0, 509);
             this.m_btn_Control.Margin = new System.Windows.Forms.Padding(0);
             this.m_btn_Control.Name = "m_btn_Control";
-            this.m_btn_Control.Size = new System.Drawing.Size(225, 37);
+            this.m_btn_Control.Size = new System.Drawing.Size(226, 37);
             this.m_btn_Control.TabIndex = 1;
             this.m_btn_Control.Text = "Control";
             this.m_btn_Control.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -895,7 +739,7 @@
             this.m_btn_VisualSetting.Location = new System.Drawing.Point(0, 684);
             this.m_btn_VisualSetting.Margin = new System.Windows.Forms.Padding(0);
             this.m_btn_VisualSetting.Name = "m_btn_VisualSetting";
-            this.m_btn_VisualSetting.Size = new System.Drawing.Size(225, 37);
+            this.m_btn_VisualSetting.Size = new System.Drawing.Size(226, 37);
             this.m_btn_VisualSetting.TabIndex = 1;
             this.m_btn_VisualSetting.Text = "Visualization Settings";
             this.m_btn_VisualSetting.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -910,7 +754,7 @@
             this.m_btn_InputData.Location = new System.Drawing.Point(0, 544);
             this.m_btn_InputData.Margin = new System.Windows.Forms.Padding(0);
             this.m_btn_InputData.Name = "m_btn_InputData";
-            this.m_btn_InputData.Size = new System.Drawing.Size(225, 37);
+            this.m_btn_InputData.Size = new System.Drawing.Size(226, 37);
             this.m_btn_InputData.TabIndex = 1;
             this.m_btn_InputData.Text = "Input Data Selection";
             this.m_btn_InputData.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -925,7 +769,7 @@
             this.m_btn_EvaSetting.Location = new System.Drawing.Point(0, 579);
             this.m_btn_EvaSetting.Margin = new System.Windows.Forms.Padding(0);
             this.m_btn_EvaSetting.Name = "m_btn_EvaSetting";
-            this.m_btn_EvaSetting.Size = new System.Drawing.Size(225, 37);
+            this.m_btn_EvaSetting.Size = new System.Drawing.Size(226, 37);
             this.m_btn_EvaSetting.TabIndex = 1;
             this.m_btn_EvaSetting.Text = "Evaluation Settings";
             this.m_btn_EvaSetting.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -940,7 +784,7 @@
             this.m_btn_StartPts.Location = new System.Drawing.Point(0, 649);
             this.m_btn_StartPts.Margin = new System.Windows.Forms.Padding(0);
             this.m_btn_StartPts.Name = "m_btn_StartPts";
-            this.m_btn_StartPts.Size = new System.Drawing.Size(225, 37);
+            this.m_btn_StartPts.Size = new System.Drawing.Size(226, 37);
             this.m_btn_StartPts.TabIndex = 1;
             this.m_btn_StartPts.Text = "Startpoints";
             this.m_btn_StartPts.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -955,7 +799,7 @@
             this.m_btn_MaskDef.Location = new System.Drawing.Point(0, 614);
             this.m_btn_MaskDef.Margin = new System.Windows.Forms.Padding(0);
             this.m_btn_MaskDef.Name = "m_btn_MaskDef";
-            this.m_btn_MaskDef.Size = new System.Drawing.Size(225, 37);
+            this.m_btn_MaskDef.Size = new System.Drawing.Size(226, 37);
             this.m_btn_MaskDef.TabIndex = 1;
             this.m_btn_MaskDef.Text = "Mask Definition";
             this.m_btn_MaskDef.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -972,7 +816,7 @@
             this.panel_VisualSetting.Controls.Add(this.groupBox11);
             this.panel_VisualSetting.Location = new System.Drawing.Point(3, 3);
             this.panel_VisualSetting.Name = "panel_VisualSetting";
-            this.panel_VisualSetting.Size = new System.Drawing.Size(219, 503);
+            this.panel_VisualSetting.Size = new System.Drawing.Size(220, 503);
             this.panel_VisualSetting.TabIndex = 3;
             // 
             // tabPage
@@ -987,7 +831,7 @@
             this.tabPage.Location = new System.Drawing.Point(3, 84);
             this.tabPage.Name = "tabPage";
             this.tabPage.SelectedIndex = 0;
-            this.tabPage.Size = new System.Drawing.Size(209, 412);
+            this.tabPage.Size = new System.Drawing.Size(210, 412);
             this.tabPage.TabIndex = 2;
             // 
             // tabPage1
@@ -995,7 +839,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(201, 386);
+            this.tabPage1.Size = new System.Drawing.Size(202, 386);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Graphics";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -1040,7 +884,7 @@
             this.groupBox11.Controls.Add(this.label17);
             this.groupBox11.Location = new System.Drawing.Point(3, 3);
             this.groupBox11.Name = "groupBox11";
-            this.groupBox11.Size = new System.Drawing.Size(209, 75);
+            this.groupBox11.Size = new System.Drawing.Size(210, 75);
             this.groupBox11.TabIndex = 1;
             this.groupBox11.TabStop = false;
             this.groupBox11.Text = "Step selection";
@@ -1096,7 +940,7 @@
             this.panel_StartPts.Controls.Add(this.groupBox8);
             this.panel_StartPts.Location = new System.Drawing.Point(3, 3);
             this.panel_StartPts.Name = "panel_StartPts";
-            this.panel_StartPts.Size = new System.Drawing.Size(219, 503);
+            this.panel_StartPts.Size = new System.Drawing.Size(220, 503);
             this.panel_StartPts.TabIndex = 2;
             // 
             // button11
@@ -1162,7 +1006,7 @@
             this.groupBox10.Controls.Add(this.listView6);
             this.groupBox10.Location = new System.Drawing.Point(3, 319);
             this.groupBox10.Name = "groupBox10";
-            this.groupBox10.Size = new System.Drawing.Size(209, 122);
+            this.groupBox10.Size = new System.Drawing.Size(210, 122);
             this.groupBox10.TabIndex = 1;
             this.groupBox10.TabStop = false;
             this.groupBox10.Text = "Startpoint selection";
@@ -1172,7 +1016,7 @@
             this.listView6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listView6.Location = new System.Drawing.Point(3, 17);
             this.listView6.Name = "listView6";
-            this.listView6.Size = new System.Drawing.Size(203, 102);
+            this.listView6.Size = new System.Drawing.Size(204, 102);
             this.listView6.TabIndex = 0;
             this.listView6.UseCompatibleStateImageBehavior = false;
             // 
@@ -1183,7 +1027,7 @@
             this.groupBox9.Controls.Add(this.listView5);
             this.groupBox9.Location = new System.Drawing.Point(3, 59);
             this.groupBox9.Name = "groupBox9";
-            this.groupBox9.Size = new System.Drawing.Size(209, 213);
+            this.groupBox9.Size = new System.Drawing.Size(210, 213);
             this.groupBox9.TabIndex = 1;
             this.groupBox9.TabStop = false;
             this.groupBox9.Text = "Step selection";
@@ -1193,7 +1037,7 @@
             this.listView5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listView5.Location = new System.Drawing.Point(3, 17);
             this.listView5.Name = "listView5";
-            this.listView5.Size = new System.Drawing.Size(203, 193);
+            this.listView5.Size = new System.Drawing.Size(204, 193);
             this.listView5.TabIndex = 0;
             this.listView5.UseCompatibleStateImageBehavior = false;
             // 
@@ -1205,7 +1049,7 @@
             this.groupBox8.Controls.Add(this.progressBar1);
             this.groupBox8.Location = new System.Drawing.Point(3, 3);
             this.groupBox8.Name = "groupBox8";
-            this.groupBox8.Size = new System.Drawing.Size(209, 50);
+            this.groupBox8.Size = new System.Drawing.Size(210, 50);
             this.groupBox8.TabIndex = 0;
             this.groupBox8.TabStop = false;
             this.groupBox8.Text = "Automatic startpoint search";
@@ -1235,7 +1079,7 @@
             this.panel_MaskDef.Controls.Add(this.groupBox7);
             this.panel_MaskDef.Location = new System.Drawing.Point(3, 3);
             this.panel_MaskDef.Name = "panel_MaskDef";
-            this.panel_MaskDef.Size = new System.Drawing.Size(219, 503);
+            this.panel_MaskDef.Size = new System.Drawing.Size(220, 503);
             this.panel_MaskDef.TabIndex = 1;
             // 
             // groupBox7
@@ -1246,7 +1090,7 @@
             this.groupBox7.Controls.Add(this.listView4);
             this.groupBox7.Location = new System.Drawing.Point(4, 9);
             this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(209, 487);
+            this.groupBox7.Size = new System.Drawing.Size(210, 487);
             this.groupBox7.TabIndex = 0;
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "Step selection";
@@ -1256,7 +1100,7 @@
             this.listView4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listView4.Location = new System.Drawing.Point(3, 17);
             this.listView4.Name = "listView4";
-            this.listView4.Size = new System.Drawing.Size(203, 467);
+            this.listView4.Size = new System.Drawing.Size(204, 467);
             this.listView4.TabIndex = 0;
             this.listView4.UseCompatibleStateImageBehavior = false;
             // 
@@ -1272,7 +1116,7 @@
             this.panel_EvaSetting.Controls.Add(this.groupBox3);
             this.panel_EvaSetting.Location = new System.Drawing.Point(3, 3);
             this.panel_EvaSetting.Name = "panel_EvaSetting";
-            this.panel_EvaSetting.Size = new System.Drawing.Size(219, 503);
+            this.panel_EvaSetting.Size = new System.Drawing.Size(220, 503);
             this.panel_EvaSetting.TabIndex = 0;
             // 
             // button6
@@ -1586,7 +1430,7 @@
             this.panel_InputData.Controls.Add(this.groupBox1);
             this.panel_InputData.Location = new System.Drawing.Point(3, 3);
             this.panel_InputData.Name = "panel_InputData";
-            this.panel_InputData.Size = new System.Drawing.Size(219, 503);
+            this.panel_InputData.Size = new System.Drawing.Size(220, 503);
             this.panel_InputData.TabIndex = 0;
             // 
             // groupBox2
@@ -1684,6 +1528,200 @@
             // CameraSnapTimer
             // 
             this.CameraSnapTimer.Tick += new System.EventHandler(this.CameraSnapTimer_Tick);
+            // 
+            // buttonRunAll
+            // 
+            this.buttonRunAll.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.buttonRunAll.Location = new System.Drawing.Point(14, 470);
+            this.buttonRunAll.Name = "buttonRunAll";
+            this.buttonRunAll.Size = new System.Drawing.Size(93, 23);
+            this.buttonRunAll.TabIndex = 20;
+            this.buttonRunAll.Text = "开始计算";
+            this.buttonRunAll.UseVisualStyleBackColor = true;
+            this.buttonRunAll.Click += new System.EventHandler(this.buttonRunAll_Click);
+            // 
+            // buttonShowAll
+            // 
+            this.buttonShowAll.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.buttonShowAll.Location = new System.Drawing.Point(113, 470);
+            this.buttonShowAll.Name = "buttonShowAll";
+            this.buttonShowAll.Size = new System.Drawing.Size(93, 23);
+            this.buttonShowAll.TabIndex = 23;
+            this.buttonShowAll.Text = "导出结果";
+            this.buttonShowAll.UseVisualStyleBackColor = true;
+            this.buttonShowAll.Click += new System.EventHandler(this.buttonShowAll_Click);
+            // 
+            // m_btn_SelectFolder
+            // 
+            this.m_btn_SelectFolder.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.m_btn_SelectFolder.Image = global::MyDIC.Properties.Resources.文件夹桌面图标下载26;
+            this.m_btn_SelectFolder.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.m_btn_SelectFolder.Name = "m_btn_SelectFolder";
+            this.m_btn_SelectFolder.Size = new System.Drawing.Size(23, 33);
+            this.m_btn_SelectFolder.Text = "选择文件夹";
+            this.m_btn_SelectFolder.Click += new System.EventHandler(this.m_btn_SelectFolder_Click);
+            // 
+            // m_btn_SavePicToAddress
+            // 
+            this.m_btn_SavePicToAddress.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.m_btn_SavePicToAddress.Image = global::MyDIC.Properties.Resources.DISKETTE;
+            this.m_btn_SavePicToAddress.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.m_btn_SavePicToAddress.Name = "m_btn_SavePicToAddress";
+            this.m_btn_SavePicToAddress.Size = new System.Drawing.Size(23, 33);
+            this.m_btn_SavePicToAddress.Text = "保存图片至任意位置";
+            this.m_btn_SavePicToAddress.Click += new System.EventHandler(this.m_btn_SavePicToAddress_Click);
+            // 
+            // m_btn_WatchPics
+            // 
+            this.m_btn_WatchPics.AccessibleName = "";
+            this.m_btn_WatchPics.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.m_btn_WatchPics.Image = global::MyDIC.Properties.Resources.蓝色电脑系统图标下载16;
+            this.m_btn_WatchPics.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.m_btn_WatchPics.Name = "m_btn_WatchPics";
+            this.m_btn_WatchPics.Size = new System.Drawing.Size(23, 33);
+            this.m_btn_WatchPics.Text = "查看图片";
+            this.m_btn_WatchPics.Click += new System.EventHandler(this.m_btn_WatchPics_Click);
+            // 
+            // m_btn_WatchLastPics
+            // 
+            this.m_btn_WatchLastPics.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.m_btn_WatchLastPics.Image = global::MyDIC.Properties.Resources.ARW11NW;
+            this.m_btn_WatchLastPics.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.m_btn_WatchLastPics.Name = "m_btn_WatchLastPics";
+            this.m_btn_WatchLastPics.Size = new System.Drawing.Size(23, 33);
+            this.m_btn_WatchLastPics.Text = "查看上一张图片";
+            this.m_btn_WatchLastPics.Click += new System.EventHandler(this.m_btn_WatchLastPics_Click);
+            // 
+            // m_btn_CameraSet
+            // 
+            this.m_btn_CameraSet.AccessibleDescription = "";
+            this.m_btn_CameraSet.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.m_btn_CameraSet.Image = global::MyDIC.Properties.Resources.MARK0017;
+            this.m_btn_CameraSet.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.m_btn_CameraSet.Name = "m_btn_CameraSet";
+            this.m_btn_CameraSet.Size = new System.Drawing.Size(23, 33);
+            this.m_btn_CameraSet.Text = "设置相机";
+            this.m_btn_CameraSet.Click += new System.EventHandler(this.m_btn_CameraSet_Click);
+            // 
+            // m_btn_OpenCamera
+            // 
+            this.m_btn_OpenCamera.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.m_btn_OpenCamera.Image = global::MyDIC.Properties.Resources.BMWDicons;
+            this.m_btn_OpenCamera.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.m_btn_OpenCamera.Name = "m_btn_OpenCamera";
+            this.m_btn_OpenCamera.Size = new System.Drawing.Size(23, 33);
+            this.m_btn_OpenCamera.Text = "开启设备";
+            this.m_btn_OpenCamera.Click += new System.EventHandler(this.m_btn_OpenCamera_Click);
+            // 
+            // m_btn_CloseCamera
+            // 
+            this.m_btn_CloseCamera.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.m_btn_CloseCamera.Image = global::MyDIC.Properties.Resources.DOG;
+            this.m_btn_CloseCamera.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.m_btn_CloseCamera.Name = "m_btn_CloseCamera";
+            this.m_btn_CloseCamera.Size = new System.Drawing.Size(23, 33);
+            this.m_btn_CloseCamera.Text = "关闭设备";
+            this.m_btn_CloseCamera.Click += new System.EventHandler(this.m_btn_CloseCamera_Click);
+            // 
+            // m_btn_StartCalibration
+            // 
+            this.m_btn_StartCalibration.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.m_btn_StartCalibration.Image = global::MyDIC.Properties.Resources.Sci_FiObjects0100;
+            this.m_btn_StartCalibration.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.m_btn_StartCalibration.Name = "m_btn_StartCalibration";
+            this.m_btn_StartCalibration.Size = new System.Drawing.Size(23, 33);
+            this.m_btn_StartCalibration.Text = "建立标定序列";
+            this.m_btn_StartCalibration.Click += new System.EventHandler(this.m_btn_StartCalibration_Click);
+            // 
+            // m_btn_CalibrateSet
+            // 
+            this.m_btn_CalibrateSet.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.m_btn_CalibrateSet.Image = global::MyDIC.Properties.Resources.文件夹桌面图标下载17;
+            this.m_btn_CalibrateSet.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.m_btn_CalibrateSet.Name = "m_btn_CalibrateSet";
+            this.m_btn_CalibrateSet.Size = new System.Drawing.Size(23, 33);
+            this.m_btn_CalibrateSet.Text = "设置标定参数";
+            this.m_btn_CalibrateSet.Click += new System.EventHandler(this.m_btn_CalibrateSet_Click);
+            // 
+            // m_btn_InPutCalibration
+            // 
+            this.m_btn_InPutCalibration.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.m_btn_InPutCalibration.Image = global::MyDIC.Properties.Resources.文件夹桌面图标下载20;
+            this.m_btn_InPutCalibration.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.m_btn_InPutCalibration.Name = "m_btn_InPutCalibration";
+            this.m_btn_InPutCalibration.Size = new System.Drawing.Size(23, 33);
+            this.m_btn_InPutCalibration.Text = "载入标定数据";
+            this.m_btn_InPutCalibration.Click += new System.EventHandler(this.m_btn_InPutCalibration_Click);
+            // 
+            // m_btn_ShowPoint
+            // 
+            this.m_btn_ShowPoint.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.m_btn_ShowPoint.Image = global::MyDIC.Properties.Resources.BEBULB_1;
+            this.m_btn_ShowPoint.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.m_btn_ShowPoint.Name = "m_btn_ShowPoint";
+            this.m_btn_ShowPoint.Size = new System.Drawing.Size(23, 33);
+            this.m_btn_ShowPoint.Text = "DIC参数设置";
+            this.m_btn_ShowPoint.Click += new System.EventHandler(this.m_btn_DICSetting_Click);
+            // 
+            // m_btn_SetOrigin
+            // 
+            this.m_btn_SetOrigin.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.m_btn_SetOrigin.Image = global::MyDIC.Properties.Resources._03b;
+            this.m_btn_SetOrigin.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.m_btn_SetOrigin.Name = "m_btn_SetOrigin";
+            this.m_btn_SetOrigin.Size = new System.Drawing.Size(23, 33);
+            this.m_btn_SetOrigin.Text = "放置原点";
+            this.m_btn_SetOrigin.Click += new System.EventHandler(this.m_btn_SetOrigin_Click);
+            // 
+            // m_btn_SetPath
+            // 
+            this.m_btn_SetPath.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.m_btn_SetPath.Image = global::MyDIC.Properties.Resources.POINT09;
+            this.m_btn_SetPath.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.m_btn_SetPath.Name = "m_btn_SetPath";
+            this.m_btn_SetPath.Size = new System.Drawing.Size(23, 33);
+            this.m_btn_SetPath.Text = "画出计算区域";
+            this.m_btn_SetPath.Click += new System.EventHandler(this.m_btn_SetPath_Click);
+            // 
+            // m_btn_NewFolder
+            // 
+            this.m_btn_NewFolder.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.m_btn_NewFolder.Image = global::MyDIC.Properties.Resources.OPENSTEP_EUI_Recycle_Bin__empty_;
+            this.m_btn_NewFolder.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.m_btn_NewFolder.Name = "m_btn_NewFolder";
+            this.m_btn_NewFolder.Size = new System.Drawing.Size(23, 33);
+            this.m_btn_NewFolder.Text = "新建采集序列";
+            this.m_btn_NewFolder.Click += new System.EventHandler(this.m_btn_NewFolder_Click);
+            // 
+            // m_btn_ContinueFolder
+            // 
+            this.m_btn_ContinueFolder.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.m_btn_ContinueFolder.Image = global::MyDIC.Properties.Resources.OPENSTEP_EUI_Recycle_Bin__full_;
+            this.m_btn_ContinueFolder.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.m_btn_ContinueFolder.Name = "m_btn_ContinueFolder";
+            this.m_btn_ContinueFolder.Size = new System.Drawing.Size(23, 33);
+            this.m_btn_ContinueFolder.Text = "继续采集序列";
+            this.m_btn_ContinueFolder.Click += new System.EventHandler(this.m_btn_ContinueFolder_Click);
+            // 
+            // m_btn_CatchSinglePic
+            // 
+            this.m_btn_CatchSinglePic.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.m_btn_CatchSinglePic.Image = global::MyDIC.Properties.Resources.文件夹桌面图标下载18;
+            this.m_btn_CatchSinglePic.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.m_btn_CatchSinglePic.Name = "m_btn_CatchSinglePic";
+            this.m_btn_CatchSinglePic.Size = new System.Drawing.Size(23, 33);
+            this.m_btn_CatchSinglePic.Text = "单帧采集";
+            this.m_btn_CatchSinglePic.Click += new System.EventHandler(this.m_btn_CatchSinglePic_Click);
+            // 
+            // m_btn_DrawPoint
+            // 
+            this.m_btn_DrawPoint.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.m_btn_DrawPoint.Image = global::MyDIC.Properties.Resources.POINT10;
+            this.m_btn_DrawPoint.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.m_btn_DrawPoint.Name = "m_btn_DrawPoint";
+            this.m_btn_DrawPoint.Size = new System.Drawing.Size(23, 20);
+            this.m_btn_DrawPoint.Text = "toolStripButton1";
+            this.m_btn_DrawPoint.Click += new System.EventHandler(this.m_btn_DrawPoint_Click);
             // 
             // MainForm
             // 
@@ -1821,7 +1859,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox comboBoxTemplateIMG;
         private System.Windows.Forms.ComboBox comboBoxCurrentIMG;
-        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ListView Control_listview;
         private System.Windows.Forms.Panel panel_InputData;
         private System.Windows.Forms.Panel panel_EvaSetting;
         private System.Windows.Forms.GroupBox groupBox6;
@@ -1892,6 +1930,9 @@
         private System.Windows.Forms.GroupBox groupBox8;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.ProgressBar progressBar1;
+        private System.Windows.Forms.Button buttonShowAll;
+        private System.Windows.Forms.Button buttonRunAll;
+        private System.Windows.Forms.ToolStripButton m_btn_DrawPoint;
     }
 }
 

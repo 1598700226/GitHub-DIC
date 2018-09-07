@@ -17,29 +17,17 @@ namespace MyDIC
         {
             InitializeComponent();
         }
-        public DICResultShow(List<PointF> ListPointGridinPolygon, PointF[]ListPointGridinPolygonSub)
+        public DICResultShow(List<double> ptValue)
         {
             InitializeComponent();
-            List<double> yDataOld = new List<double>();
-            List<double> yData = new List<double>();
-            foreach (PointF item in ListPointGridinPolygon)
+            double[] xData = new double[ptValue.Count];
+            for (int i = 0; i < ptValue.Count; i++)
             {
-                yDataOld.Add(Math.Sqrt(Math.Pow(item.X, 2) + Math.Pow(item.Y, 2)));
+                xData[i] = i + 1;
             }
-            foreach (PointF item in ListPointGridinPolygonSub)
-            {
-                yData.Add(Math.Sqrt(Math.Pow(item.X, 2) + Math.Pow(item.Y, 2)));
-            }
-            List<int> xData = new List<int>();
-            for (int i = 1; i <= ListPointGridinPolygon.Count(); i++)
-            {
-                xData.Add(i);
-            }
+            chart1.Series[0].LegendText = "偏差值";
+            chart1.Series[0].Points.DataBindXY(xData, ptValue);
 
-            chart1.Series[0].LegendText = "原始数据点";
-            chart1.Series[1].LegendText = "新数据点";
-            chart1.Series[0].Points.DataBindXY(xData, yDataOld);
-            chart1.Series[1].Points.DataBindXY(xData, yData);
         }
 
         private void DICResultShow_Load(object sender, EventArgs e)
